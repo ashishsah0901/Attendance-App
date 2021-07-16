@@ -17,7 +17,7 @@ class StudentsAttendanceAdapter(private val context: Context, private val data: 
     }
 
     override fun onBindViewHolder(holder: StudentsAttendanceViewHolder, position: Int) {
-        holder.itemView.studentName.text = "Roll no. $position"
+        holder.itemView.studentName.text = "Roll no. ${position + 1}"
         holder.itemView.numberOfLectures.text = "${data[position]}"
     }
 

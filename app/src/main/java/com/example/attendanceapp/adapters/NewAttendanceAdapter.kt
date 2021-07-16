@@ -26,9 +26,13 @@ class NewAttendanceAdapter(private val context: Context, private val strength: I
     override fun onBindViewHolder(holder: NewAttendanceViewHolder, position: Int) {
         holder.itemView.roll_call_number.text ="Roll no. ${position+1}"
         holder.itemView.radio_bt_absent.isChecked = true
-        holder.itemView.radio_bt_present.setOnCheckedChangeListener { _, isChecked ->
-            if(isChecked)
-                attendance[position] = 1
+        holder.itemView.radio_bt_present.setOnClickListener {
+            attendance[position] = 1
+            holder.itemView.radio_bt_present.isChecked = true
+        }
+        holder.itemView.radio_bt_absent.setOnClickListener {
+            attendance[position] = 0
+            holder.itemView.radio_bt_absent.isChecked = true
         }
     }
 
